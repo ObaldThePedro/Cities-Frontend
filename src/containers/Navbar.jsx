@@ -4,13 +4,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { withRouter, NavLink } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
   color:{
-      backgroundColor:'#80cbc4'
+      backgroundColor:'#4fc3f7',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -20,22 +21,54 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Navbar = () =>
-{
+
+
+
+const Navbar = (props) =>{
   const classes = useStyles();
+  
+  //create my button so I can use material Ui styling and do navegation on click
+  const MyButton = withRouter(({history})=> {
+    switch(props.pathname){
+      case '/cities':
+          return(
+            <Button style={{color: 'white'}} onClick={() => { history.push('/homepage', { cities: props.cities}) }}>
+              Homepage
+            </Button>);
+      case '/homepage':
+        return(
+          <Button style={{color: 'white'}} onClick={() => { history.push('/cities', { cities: props.cities}) }}>
+          Cities
+        </Button>);
+      case '/city/:city':
+        return(
+          <React.Fragment>
+          <Button style={{color: 'white'}} onClick={() => { history.push('/homepage', { cities: props.cities}) }}>
+          Homepage
+        </Button>
+         <Button style={{color: 'white'}} onClick={() => { history.push('/cities', { cities: props.cities}) }}>
+         Cities
+       </Button>
+       </React.Fragment>);
+      default:
+        return null
+    }
+    
+  })
+    //passing down cities props on click
+   
 
   return (
     <div className={classes.root}>
       <AppBar className={classes.color} position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            All cities
+            CitiesApp
           </Typography>
-          <Button color="inherit">Login</Button>
+             <MyButton color="inherit"/>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
-
 export default Navbar;

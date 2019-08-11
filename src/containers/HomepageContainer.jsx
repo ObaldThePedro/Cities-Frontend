@@ -3,8 +3,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import NewYork from '../img/homepage.jpeg';
-import InputBase from '@material-ui/core/InputBase';
+import CityImage from '../img/homepage.jpeg';
+
 import AutoComplete from './AutoComplete'
 
 const useStyles = makeStyles(theme => ({
@@ -34,14 +34,16 @@ const useStyles = makeStyles(theme => ({
         paddingRight: '20px'
       },
       input: {
-        bottom: '100px',
+        border:'none',
         marginLeft: '40%',
         marginRight: '40%',
-        width: '15%',
+        width: '25%',
+        height: '30%',
         textAlign: 'center',
         backgroundColor: 'white',
         color: 'black',
-        borderRadius: '3px'
+        borderRadius: '4px',
+        boxShadow: '1px 2px 3px'
       },
       image:{
         position:'relative',
@@ -64,12 +66,11 @@ const HomepageContainer = (props) => {
       <Container maxWidth="false" className={classes.main_container}>
         <Typography className={classes.title} variant='h2'>Cities</Typography>
         <Container maxWidth="false" className={classes.sub_container}>
-          <img src={NewYork} className={classes.image}>
+          <img src={CityImage} className={classes.image}>
           </img>
               <Typography variant='h5' className={classes.description}>Get to know your dream city. Compare your dream city with other cities on quality of life, salaries, cost of living and more.</Typography>
         </Container>
-        <AutoComplete cities={props.cities} ></AutoComplete>
-        <InputBase placeholder="Search city" className={classes.input}></InputBase>
+        <AutoComplete cities={props.cities} input_style={classes.input}></AutoComplete>
       </Container>
       
     </React.Fragment>

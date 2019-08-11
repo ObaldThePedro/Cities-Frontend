@@ -21,14 +21,13 @@ constructor(){
   {
     API.getAllCities()
       .then(this.addCitiesFromAPI)
+  }
 
 
-    }
   render(){
     return(
     <div>
-
-      <Homepage cities={this.state.cities}></Homepage>
+      <Homepage pathname={this.props.location.pathname} cities={this.state.cities}></Homepage>
       </div>
     )
   }
