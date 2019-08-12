@@ -8,48 +8,31 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Homepage from '../img/homepage.jpeg'
+import {Link} from 'react-router-dom'
+import { Checkbox } from '@material-ui/core';
 
-const useStyles = makeStyles({
-  card: {
-    maxWidth: '100%',
-  },
-  media: {
-    height: 140,
-  },
+export default class MediaCard extends React.PureComponent{ 
+  handleCheckbox = () => this.props.addCityToSelection(this.props.city.name)
 
-});
-
-const MediaCard = (props) => 
-{
-  const classes = useStyles();
-
+  render(){
   return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={Homepage}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.city.name}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
+    <Card 
+    onClick={this.handleCheckbox}>
+    <CardActionArea>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="h2">
+        <Link to={{pathname:`/city/${this.props.city.name}`, state:{cities: this.props.cities}}}>
+          <Checkbox
+            checked={this.props.selected}
+            onChange={this.handleCheckbox}
+          />
+          {this.props.city.name}
+          </Link>
+        </Typography>
+      </CardContent>
+      
+    </CardActionArea>
     </Card>
   );
+    }
 }
-export default MediaCard

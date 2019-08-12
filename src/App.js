@@ -1,6 +1,7 @@
 import React from 'react';
 import API from './adapters/API'
 import Homepage from './components/Homepage'
+import './App.css'
 
 
 

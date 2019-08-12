@@ -44,7 +44,7 @@ export default class CityPage extends React.Component{
           }
         }));
     }
-    
+    // "https://api.teleport.org/api/urban_areas/slug:birmingham-al/"
 
     
     componentDidMount() {
@@ -62,7 +62,7 @@ export default class CityPage extends React.Component{
             }, this.getChartData)
         })
         this.setState({loading: true})
-       setTimeout(() => this.setState({loading: false}), 1000)
+       setTimeout(() => this.setState({loading: false}), 500)
     }
 
 
@@ -76,7 +76,7 @@ export default class CityPage extends React.Component{
                 :
                 <div>
           <Navbar pathname={this.props.match.path} cities={this.props.location.state.cities}/>
-          <img src={this.state.url}/>
+          <img style={{width:'100%'}} src={this.state.url}/>
           <h1>{this.props.match.params.city}</h1>
         {this.state.summary}
         <Chart chartData={this.state.chartData}></Chart>

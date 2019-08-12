@@ -26,6 +26,7 @@ const getAllCities = () => {
     )
 }
 
+
 export default {
     getAllCities
 }

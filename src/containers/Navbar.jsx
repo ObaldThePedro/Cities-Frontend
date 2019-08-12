@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { withRouter, NavLink } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,10 +32,10 @@ const Navbar = (props) =>{
     switch(props.pathname){
       case '/cities':
           return(
-            <Button style={{color: 'white'}} onClick={() => { history.push('/homepage', { cities: props.cities}) }}>
+            <Button style={{color: 'white'}} onClick={() => { history.push('/', { cities: props.cities}) }}>
               Homepage
             </Button>);
-      case '/homepage':
+      case '/':
         return(
           <Button style={{color: 'white'}} onClick={() => { history.push('/cities', { cities: props.cities}) }}>
           Cities
@@ -43,10 +43,20 @@ const Navbar = (props) =>{
       case '/city/:city':
         return(
           <React.Fragment>
-          <Button style={{color: 'white'}} onClick={() => { history.push('/homepage', { cities: props.cities}) }}>
+          <Button style={{color: 'white'}} onClick={() => { history.push('/', { cities: props.cities}) }}>
           Homepage
         </Button>
          <Button style={{color: 'white'}} onClick={() => { history.push('/cities', { cities: props.cities}) }}>
+         Cities
+       </Button>
+       </React.Fragment>);
+       case `/compare/${props.cities[0]}/${props.cities[1]}/`:
+         return(
+          <React.Fragment>
+          <Button style={{color: 'white'}} onClick={() => { history.push('/', { cities: props.cities[2]}) }}>
+          Homepage
+        </Button>
+         <Button style={{color: 'white'}} onClick={() => { history.push('/cities', { cities: props.cities[2]}) }}>
          Cities
        </Button>
        </React.Fragment>);

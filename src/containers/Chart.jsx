@@ -22,7 +22,7 @@ const Chart = (props) =>{
               fontSize:25
             },
             legend:{
-              display:false,
+              display:true,
             }
           }}
         />

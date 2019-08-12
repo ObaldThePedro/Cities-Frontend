@@ -29,7 +29,7 @@ export default class AutoComplete extends React.Component{
                 this.setState({suggestions: suggestions, value: value})
             }
         }
-        
+        //clean string for white spaces
         suggestionSelected = (value) =>{ this.setState( {value: value,suggestions: [] })}
         
         renderSuggestions = () =>{
