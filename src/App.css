@@ -3,3 +3,38 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
   bottom: 5%;
   z-index: 100;
 }
+
+
+.flex-container{
+	width: 80%;
+	min-height: 300px;
+	margin: 0 auto;
+  display: flex;
+}
+.flex-container .column{
+  margin-top: 1%;
+  margin-right: 1%;
+  border-radius: 10px;
+	padding: 10px;
+	background: #adadad85;
+	-ms-flex: 1; /* IE 10 */
+  flex: 1;
+  text-align: center
+}
+.flex-container .column.bg-alt{
+	background: #adadad85;
+}
+
+.title{
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.chartWrapper{
+  margin-top: 40px;
+}
+
+.dropWrapper{
+  text-align: center
+}
+
