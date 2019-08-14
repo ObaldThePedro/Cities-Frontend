@@ -49,9 +49,9 @@ export default class AutoComplete extends React.Component{
 
         render(){
         return(
-        <div style={{width:'100%',textAlign:"center", border: '1px solid grey', boxShadow: '0 0 0 1px rgba(0,0,0, 0.1), 0 2px 4px 1px regba(0,0,0, 0.18)'
+        <div style={{width:'100%',textAlign:"center", boxShadow: '0 0 0 1px rgba(0,0,0, 0.1), 0 2px 4px 1px regba(0,0,0, 0.18)'
         }}>
-            <input placeholder="Search a city" value={this.state.value} onChange={this.handleChange} className={this.props.input_style} type="text"/>
+            <input placeholder="Search a city" value={this.state.value} onChange={this.handleChange} autoComplete="off" className={this.props.input_style} type="text"/>
             {this.renderSuggestions()}
             
         </div>)

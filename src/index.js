@@ -13,9 +13,9 @@ ReactDOM.render(
     <Router>
         <Switch>
             <Route exact path='/' component={App} />
-            <Route exact path='/city/:city' component={CityPage}/>
-            <Route exact path='/cities' component={CitiesPage}/>
-            <Route exact path='/compare/:cityA/:cityB/' component={CompareCities}/>
+            <Route path='/city/:city' component={CityPage}/>
+            <Route path='/cities' component={CitiesPage}/>
+            <Route path='/compare/:cityA/:cityB/' component={CompareCities}/>
         </Switch>
     </Router>
     </>

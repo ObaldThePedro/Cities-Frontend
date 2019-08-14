@@ -28,6 +28,7 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
 .title{
   font-size: 30px;
   font-weight: 800;
+  text-align: center
 }
 
 .chartWrapper{
@@ -36,5 +37,42 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
 
 .dropWrapper{
   text-align: center
+}
+
+.wrapper{
+  position: relative;
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.wrapper > div {
+  padding: 1em;
+}
+
+.button {
+  position: relative;
+  bottom:25px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 100px;
+  margin-left: 45%;
+  margin-right: 45%;
+  width:10%
+}
+
+.city-image{
+  width: 80%;
+  height: 70%;
+  max-width: 100%;
+  position: fixed;
+  border-radius: 10px;
 }
 

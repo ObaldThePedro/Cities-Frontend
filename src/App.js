@@ -18,6 +18,7 @@ constructor(){
     cities: continentCities.flat()
   })
 
+
   componentDidMount()
   {
     API.getAllCities()
@@ -29,7 +30,7 @@ constructor(){
     return(
     <div>
       <Homepage pathname={this.props.location.pathname} cities={this.state.cities}></Homepage>
-      </div>
+    </div>
     )
   }
 }

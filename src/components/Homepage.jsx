@@ -24,12 +24,11 @@ export default class Homepage extends React.Component{
             <LinearProgress />
             </div>
         :
-        <div>
         <React.Fragment>
         <Navbar pathname={this.props.pathname} cities={this.props.cities}></Navbar>
         <HomepageContainer cities={this.props.cities}></HomepageContainer>
+        <button class="button button5">Compare</button>
         </React.Fragment>
-        </div>
     )
     }
 }

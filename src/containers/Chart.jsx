@@ -1,5 +1,5 @@
 import React from 'react';
-import {HorizontalBar, Radar} from 'react-chartjs-2';
+import {HorizontalBar, Radar, Bar, } from 'react-chartjs-2';
 import { height } from '@material-ui/system';
 
 const Chart = (props) =>{
@@ -21,11 +21,11 @@ const Chart = (props) =>{
             maintainAspectRatio:true,
             title:{
               display:true,
-              text: props.path === "/compare/:cityA/:cityB/" ? "Cost of Living Comparison" : "Life Quality Score",
+              text: props.path === "/compare/:cityA/:cityB/" ? "Quality of Life Comparison" : "Life Quality Score",
               fontSize:25
             },
             legend:{
-              display:false,
+              display:true,
             },
             responsive:false,
           }}
