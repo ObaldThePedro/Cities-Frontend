@@ -1,59 +1,131 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
 
-export default class AutoComplete extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            suggestions: [],
-            value:''
-        }
+export class Autocomplete extends React.Component {
+    static propTypes = {
+      suggestions: PropTypes.instanceOf(Array)
+    };
+    static defaultProperty = {
+      suggestions: []
+    };
+    constructor(props) {
+      super(props);
+      this.state = {
+        activeSuggestion: 0,
+        filteredSuggestions: [],
+        showSuggestions: false,
+        userInput: ""
+      };
     }
+  
+    onChange = e => {
+      const userInput = e.currentTarget.value;
+      let cities= []
+  
+    for(let i=0;i< this.props.cities.length;i++)
+    {
+        cities.push(this.props.cities[i].name)
+    }
+    
+    const filteredSuggestions = cities.sort().filter(city => city.toLocaleLowerCase().startsWith(userInput.toLocaleLowerCase()))
+      this.setState({
+        activeSuggestion: 0,
+        filteredSuggestions,
+        showSuggestions: true,
+        userInput: e.currentTarget.value
+      });
+    };
+  
+    onClick = e => {
+      this.setState({
+        activeSuggestion: 0,
+        filteredSuggestions: [],
+        showSuggestions: false,
+        userInput: e.currentTarget.innerText,
+      },this.props.getData(e.currentTarget.innerText));
+      
+    };
 
-    handleChange = (e) =>{
-        let cities= []
-        let suggestions = []
-        const value = e.target.value
+    
+    onKeyDown = e => {
+      const { activeSuggestion, filteredSuggestions } = this.state;
+  
+      if (e.keyCode === 13) {
+        this.setState({
+          activeSuggestion: 0,
+          showSuggestions: false,
+          userInput: filteredSuggestions[activeSuggestion]
+        });
+      } else if (e.keyCode === 38) {
+        if (activeSuggestion === 0) {
+          return;
+        }
+        this.setState({ activeSuggestion: activeSuggestion - 1 });
+      } else if (e.keyCode === 40) {
+        if (activeSuggestion - 1 === filteredSuggestions.length) {
+          return;
+        }
         
-        
-        if(value.length === 0){
-            this.setState({
-                suggestions: [],
-                value: value
-            })}
-            else{
-                for(let i=0;i< this.props.cities.length;i++){
-                    cities.push(this.props.cities[i].name)
+        this.setState({ activeSuggestion: activeSuggestion + 1 });
+      }
+      this.props.getData(this.state.userInput)
+    };
+  
+    render(){
+      const {
+        onChange,
+        onClick,
+        onKeyDown,
+        state: {
+          activeSuggestion,
+          filteredSuggestions,
+          showSuggestions,
+          userInput
+        }
+      } = this;
+      let suggestionsListComponent;
+      if (showSuggestions && userInput) {
+        if (filteredSuggestions.length) {
+          suggestionsListComponent = (
+            <ul class="suggestions">
+              {filteredSuggestions.map((suggestion, index) => {
+                let className;
+  
+                if (index === activeSuggestion) {
+                  className = "";
                 }
-                suggestions = cities.sort().filter(city => city.toLocaleLowerCase().startsWith(value.toLocaleLowerCase()))
-                this.setState({suggestions: suggestions, value: value})
-            }
+  
+                return (
+                  <li key={suggestion} onClick={onClick}>
+                    {suggestion}
+                  </li>
+                );
+              })}
+            </ul>
+          );
+        } else {
+          suggestionsListComponent = (
+            <div class="no-suggestions">
+              <em>No suggestions</em>
+            </div>
+          );
         }
-        //clean string for white spaces
-        suggestionSelected = (value) =>{ this.setState( {value: value,suggestions: [] })}
-        
-        renderSuggestions = () =>{
-            const {suggestions} = this.state
-            
-            if(suggestions.length === 0){
-                return null
-            }
-                return(
-                    <ul>
-                        {suggestions.map((city => <li>
-                        <Link to={{pathname:`/city/${city}`, state:{cities: this.props.cities}}} >{city}</Link>
-                        </li>))}
-                    </ul>
-                )
-        }
-
-        render(){
-        return(
-        <div style={{width:'100%',textAlign:"center", boxShadow: '0 0 0 1px rgba(0,0,0, 0.1), 0 2px 4px 1px regba(0,0,0, 0.18)'
-        }}>
-            <input placeholder="Search a city" value={this.state.value} onChange={this.handleChange} autoComplete="off" className={this.props.input_style} type="text"/>
-            {this.renderSuggestions()}
-            
-        </div>)
+      }
+  
+      return (
+        <React.Fragment>
+          <input
+            type="search"
+            onChange={onChange}
+            onKeyDown={onKeyDown}
+            value={userInput}
+          />
+          {suggestionsListComponent}
+        </React.Fragment>
+      );
     }
-}
+  }
+  
+  export default Autocomplete;
+  

@@ -27,7 +27,7 @@ const Chart = (props) =>{
             legend:{
               display:true,
             },
-            responsive:false,
+            responsive:true,
           }}
         />
       </div>

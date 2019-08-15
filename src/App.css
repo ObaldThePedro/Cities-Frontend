@@ -48,6 +48,22 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
 
 .wrapper > div {
   padding: 1em;
+  margin-left: 50%
+}
+
+
+.compared-cities-wrapper{
+  position: relative;
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.compared-cities-wrapper > div {
+  position: relative;
+  padding: 1em;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .button {
@@ -55,7 +71,7 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
   bottom:25px;
   background-color: #4CAF50;
   border: none;
-  color: white;
+  color:white;
   padding: 20px;
   text-align: center;
   text-decoration: none;
@@ -65,8 +81,10 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
   border-radius: 100px;
   margin-left: 45%;
   margin-right: 45%;
-  width:10%
+  width:10%;
+  box-shadow: 1px 1px 1px
 }
+
 
 .city-image{
   width: 80%;
@@ -76,3 +94,22 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
   border-radius: 10px;
 }
 
+.input{
+  border:'none';
+  margin-left: 40%;
+  margin-right: 40%;
+  width: 25%;
+  height: 30%;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  box-shadow: 1px 2px 3px
+}
+
+.homepage-container{
+  background-color: #e6e6e6;
+  height: 450px;
+  width: 100%;
+  box-shadow: 1px 2px 3px
+}
