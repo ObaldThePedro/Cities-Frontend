@@ -51,10 +51,17 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
   margin-left: 50%
 }
 
+.salaries-dropdown{
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 45%;
+  margin-top:10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
 
 .compared-cities-wrapper{
   position: relative;
-  margin-top: 5%;
   display: grid;
   grid-template-columns: 50% 50%;
 }
@@ -85,6 +92,42 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
   box-shadow: 1px 1px 1px
 }
 
+.attribute{
+  border: solid 2px gray;
+  background-color: rgb(167, 167, 167);
+  color: black;
+  text-align: center;
+  width: 40%;
+  margin-top: 40px;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.business-title-container{
+  border-top: solid gray 2px;
+  border-bottom: solid gray 2px;
+  margin-top: 40px;
+}
+
+.business-wrapper{
+  position: relative;
+  text-align: center;
+  display: grid;
+  border-right: solid 2px gray;
+  border-left: solid 2px gray;
+  border-bottom: solid 2px gray;
+  margin-left:30%;
+  margin-right:30%;
+  grid-template-columns: 50% 50%;
+}
+
+.business-wrapper > div {
+  position: relative;
+  padding: 1em;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 
 .city-image{
   width: 80%;
@@ -112,4 +155,12 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
   height: 450px;
   width: 100%;
   box-shadow: 1px 2px 3px
+}
+
+.striped-border {
+  border: 1px dashed #000;
+  width: 20%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }

@@ -40,8 +40,11 @@ class HomepageContainer extends React.Component{
   }
 
   handleClick = () =>{
-      console.log("Hello")
-     return this.props.history.push({pathname: `/compare/${this.state.childUserinput1}/${this.state.childUserinput2}/`, state: {cities: [this.state.childUserinput1, this.state.childUserinput2, this.props.cities]} })
+      if(this.state.childUserinput1 && this.state.childUserinput2)
+      {
+        return this.props.history.push({pathname: `/compare/${this.state.childUserinput1}/${this.state.childUserinput2}/`, state: {cities: [this.state.childUserinput1, this.state.childUserinput2, this.props.cities]} })
+      }
+     
   }
   getDropdownCities = (state) =>
     this.setState({

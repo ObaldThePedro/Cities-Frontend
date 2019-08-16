@@ -5,7 +5,7 @@ import { height } from '@material-ui/system';
 const Chart = (props) =>{
     return (
       <div className="chart">
-        <HorizontalBar
+        <Bar
           data={props.chartData}
           width={700}
           height={700}
