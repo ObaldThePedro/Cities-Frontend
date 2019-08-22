@@ -1,33 +1,9 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography'
-import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
-import {Link} from 'react-router-dom'
 import { withRouter } from 'react-router-dom';
-
 import AutoComplete from './AutoComplete'
+import { Typography } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
-      container:{
-        backgroundColor: '#e6e6e6',
-        width: '100%',
-        height: '450px'
-      }
-      ,
-      input: {
-        border:'none',
-        marginLeft: '40%',
-        marginRight: '40%',
-        width: '25%',
-        height: '30%',
-        textAlign: 'center',
-        backgroundColor: 'white',
-        color: 'black',
-        borderRadius: '4px',
-        boxShadow: '1px 2px 3px'
-      }
-  }));
+
 
 
 class HomepageContainer extends React.Component{
@@ -35,17 +11,45 @@ class HomepageContainer extends React.Component{
     super(props)
     this.state = {
       childUserinput1: null,
-      childUserinput2: null   
+      childUserinput2: null
     }
+  }
+  
+  checkCities = () =>{
+    let isFound = false
+    let isFound2 = false
+    for(let i=0;i< this.props.cities.length;i++)
+    {
+      if(this.props.cities[i].name === this.state.childUserinput1){
+        isFound = true
+      }
+      if(this.props.cities[i].name === this.state.childUserinput2){
+        isFound2 = true
+      }
+    }
+    return isFound && isFound2 ? true : false 
   }
 
   handleClick = () =>{
-      if(this.state.childUserinput1 && this.state.childUserinput2)
-      {
-        return this.props.history.push({pathname: `/compare/${this.state.childUserinput1}/${this.state.childUserinput2}/`, state: {cities: [this.state.childUserinput1, this.state.childUserinput2, this.props.cities]} })
+    let isFound = false
+    let isFound2 = false
+    for(let i=0;i< this.props.cities.length;i++)
+    {
+      if(this.props.cities[i].name === this.state.childUserinput1){
+        isFound = true
       }
+      if(this.props.cities[i].name === this.state.childUserinput2){
+        isFound2 = true
+      }
+    }
+    return isFound && isFound2 ? this.props.history.push({pathname: `/compare/${this.state.childUserinput1}/${this.state.childUserinput2}/`, state: {cities: [this.state.childUserinput1, this.state.childUserinput2, this.props.cities]} }) : window.alert("Please select 2 valid cities")
+      // if(this.state.childUserinput1 && this.state.childUserinput2)
+      // {
+      //   if(this.props.cities.name.includes(this.state.childUserinput1 && this.state.childUserinput2)){
+      //   return this.props.history.push({pathname: `/compare/${this.state.childUserinput1}/${this.state.childUserinput2}/`, state: {cities: [this.state.childUserinput1, this.state.childUserinput2, this.props.cities]} })
+      // }
+    }
      
-  }
   getDropdownCities = (state) =>
     this.setState({
       childUserinput1: state
@@ -61,16 +65,17 @@ class HomepageContainer extends React.Component{
   return (
     <React.Fragment>
       <div className="homepage-container">
-      <div className="wrapper">
-        <div> 
-          <AutoComplete cities={this.props.cities} getData={this.getDropdownCities}></AutoComplete>
-        </div>
-        <div>
-          <AutoComplete cities={this.props.cities} getData={this.getDropdownCities2}></AutoComplete>
-        </div>
+          <div> 
+            <AutoComplete cities={this.props.cities} getData={this.getDropdownCities}></AutoComplete>
+          </div>
+          <div>
+            <AutoComplete cities={this.props.cities} getData={this.getDropdownCities2}></AutoComplete>
+          </div>
       </div>
-      </div>
-      <button class="button button5" onClick={this.handleClick}>Compare</button>
+      {/* <div className="description-wrapper">
+        <h5 style={{textAlign:'center'}}>Compare over 200 cities from around the world with our city comparison tools. Explore important information such as GDP, population, housing costs.</h5>
+      </div> */}
+        <button className="compare-button" disabled={!this.checkCities()} onClick={this.handleClick}>Compare</button>
     </React.Fragment>
   );
   }

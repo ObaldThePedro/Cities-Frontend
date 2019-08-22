@@ -84,29 +84,34 @@ export default class CitiesPage extends React.PureComponent{
           .filter((city, i) => i < this.state.counter) : this.filterAllCities())
           break;
         case 'sa':
-          return this.state.SA
+          return(this.state.isContinent ?
+          this.state.SA
           .filter(city => city.name.toLocaleLowerCase().startsWith(this.state.value.toLocaleLowerCase()))
-          .filter((city, i) => i < this.state.counter)
+          .filter((city, i) => i < this.state.counter) : this.filterAllCities())
           break;
         case 'eu':
-          return this.state.EU
+          return(this.state.isContinent ?
+          this.state.EU 
           .filter(city => city.name.toLocaleLowerCase().startsWith(this.state.value.toLocaleLowerCase()))
-          .filter((city, i) => i < this.state.counter)
+          .filter((city, i) => i < this.state.counter) : this.filterAllCities())
           break;
         case 'asia':
-          return this.state.ASIA
+          return(this.state.isContinent ?
+          this.state.ASIA
           .filter(city => city.name.toLocaleLowerCase().startsWith(this.state.value.toLocaleLowerCase()))
-          .filter((city, i) => i < this.state.counter)
+          .filter((city, i) => i < this.state.counter) : this.filterAllCities())
           break;
         case 'africa':
-            return this.state.AFRICA
+            return(this.state.isContinent ?
+            this.state.AFRICA
           .filter(city => city.name.toLocaleLowerCase().startsWith(this.state.value.toLocaleLowerCase()))
-          .filter((city, i) => i < this.state.counter)
+          .filter((city, i) => i < this.state.counter) : this.filterAllCities())
           break;
         case 'oceania':
-            return this.state.OCEANIA
+            return(this.state.isContinent ?
+            this.state.OCEANIA
             .filter(city => city.name.toLocaleLowerCase().startsWith(this.state.value.toLocaleLowerCase()))
-            .filter((city, i) => i < this.state.counter)
+            .filter((city, i) => i < this.state.counter) : this.filterAllCities())
             break;  
         default:
           return this.filterAllCities()

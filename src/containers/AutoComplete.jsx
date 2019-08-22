@@ -9,6 +9,7 @@ export class Autocomplete extends React.Component {
     static defaultProperty = {
       suggestions: []
     };
+
     constructor(props) {
       super(props);
       this.state = {
@@ -18,7 +19,7 @@ export class Autocomplete extends React.Component {
         userInput: ""
       };
     }
-  
+
     onChange = e => {
       const userInput = e.currentTarget.value;
       let cities= []
@@ -88,7 +89,7 @@ export class Autocomplete extends React.Component {
       if (showSuggestions && userInput) {
         if (filteredSuggestions.length) {
           suggestionsListComponent = (
-            <ul class="suggestions">
+            <ul className="suggestions">
               {filteredSuggestions.map((suggestion, index) => {
                 let className;
   
@@ -107,7 +108,7 @@ export class Autocomplete extends React.Component {
         } else {
           suggestionsListComponent = (
             <div class="no-suggestions">
-              <em>No suggestions</em>
+              <em>No matched cities</em>
             </div>
           );
         }
@@ -116,12 +117,14 @@ export class Autocomplete extends React.Component {
       return (
         <React.Fragment>
           <input
+            placeholder="Search city"
             type="search"
             onChange={onChange}
             onKeyDown={onKeyDown}
             value={userInput}
           />
           {suggestionsListComponent}
+
         </React.Fragment>
       );
     }

@@ -5,7 +5,7 @@ import { height } from '@material-ui/system';
 const Chart = (props) =>{
     return (
       <div className="chart">
-        <Bar
+        <Radar
           data={props.chartData}
           width={700}
           height={700}
@@ -27,7 +27,7 @@ const Chart = (props) =>{
             legend:{
               display:true,
             },
-            responsive:true,
+            responsive:false,
           }}
         />
       </div>

@@ -70,7 +70,7 @@ const Navbar = (props) =>{
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.color} position="static">
+      <AppBar className={classes.color} position="relative">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             CitiesApp

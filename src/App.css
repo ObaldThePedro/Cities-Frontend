@@ -25,12 +25,6 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
 	background: #adadad85;
 }
 
-.title{
-  font-size: 30px;
-  font-weight: 800;
-  text-align: center
-}
-
 .chartWrapper{
   margin-top: 40px;
 }
@@ -44,33 +38,34 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
   margin-top: 5%;
   display: grid;
   grid-template-columns: 50% 50%;
-}
-
-.wrapper > div {
-  padding: 1em;
-  margin-left: 50%
+  text-align: center;
 }
 
 .salaries-dropdown{
   margin-left: 30%;
   margin-right: 30%;
-  width: 45%;
-  margin-top:10px;
+  width: 40%;
+  margin-top:5%;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .compared-cities-wrapper{
-  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: 50% 50%;
+  padding: 10px;
+  width: 100%;
+  height: 400px;
+  background-color: whitesmoke;
 }
 
 .compared-cities-wrapper > div {
+  text-align: center;
   position: relative;
   padding: 1em;
-  margin-left: 10%;
-  margin-right: 10%;
 }
 
 .button {
@@ -150,17 +145,269 @@ button.MuiButtonBase-root.MuiFab-root.MuiFab-extended.MuiFab-primary {
   box-shadow: 1px 2px 3px
 }
 
+.button-container{
+  position: relative;
+  z-index: 1;
+  bottom: 170px;
+}
+
 .homepage-container{
-  background-color: #e6e6e6;
-  height: 450px;
-  width: 100%;
+  position: relative;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-image: url(./img/yes.jpeg);
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  background-size: 50%;
+  height: 500px;
   box-shadow: 1px 2px 3px
 }
 
-.striped-border {
-  border: 1px dashed #000;
+input[type="search"] {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  margin-top: 10%;
+  padding: 10px 15px 10px 20px;
+  font-size: 20px;
+  color: #000000;
+  /*removing boder from search box*/
+  border: solid 1px gray;
+  border-radius: 5px;
+  background-color: #ffffff6b;
+}
+
+li {
+  display: block;
+  /*removing underlines from anchor element*/
+  text-decoration: none;
+  color: #3b3b3b;
+  font-size: 20px;
+  background-color: #e0e0e04d;
+  padding: 10px;
+}
+ul {
+  /*removing predefined bullet points from list*/
+  list-style: none;
+  /*removing padding from list items*/
+  padding: 0;
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+}
+ul li {
+  margin-bottom: 10px;
+}
+/*adding effect when the mouse is hovered over list item*/
+ul li a:hover {
+  z-index: 3;
+  color: #52c7e4;
+  background: #13582a;
+}
+/*moving it slightly toware right when hovered*/
+ul li:hover {
+  /*transform*/
+  transform: translateX(20px);
+}
+/*now first we will hide the suggestion list*/
+.suggestions li {
+  text-align: left;
+  border-top: solid rgba(145, 145, 145, 0.849) 1px;
+  overflow: hidden;
+  height: 0;
+  transition: all 0.3s ease-in-out;
+}
+/*and make the suggestion reappear when user focus on search field*/
+input[type="search"]:focus + .suggestions li {
+  height: 50px;
+}
+
+.byline {
+  text-align: center;
+  font-size: 18px;
+}
+.byline a {
+  text-decoration: none;
+  color: #1f5350;
+}
+
+.button-wrapper{
+  margin-left: 25%;
+  margin-right:25%;
+  width: 50%;
+}
+
+
+.compare-button{
+  position: relative;
+  z-index: 1;
+  bottom: 50px;
+  margin-left: 45%;
+  min-width: 100px;
+  max-width:10%;
+  text-decoration: none;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  border-style: none;
+  color: white;
+  transition: all 0.5s;
+  background-color:#00c21a;
+  border-radius: 100%;
+  overflow: none;
+  text-align: center;
+  padding:0;
+}
+.compare-button:before {
+  content:'';
+  display:inline-block;
+  vertical-align:middle;
+  padding-top:100%;
+}
+span {
+  display:inline-block;
+  vertical-align:middle;
+  max-width:90%;
+}
+
+.compare-button:hover{
+  background-color: #56a060
+}
+
+.compare-button:disabled:hover{
+  background-color: #d6d6d6
+}
+
+.compare-button:disabled{
+  background-color: rgb(83, 83, 83);
+}
+
+.description-wrapper{
+  display: grid;
+  text-align: center;
+  position: relative;
+  bottom: 340px;
+  max-height: 300px;
+  margin-left: 40%;
+  margin-right: 40%;
   width: 20%;
-  margin: auto;
+  z-index: 1;
+}
+
+h5{
+    font-family: 'Lexend Deca', sans-serif;
+    color: #ffffff;
+    letter-spacing: 4px;
+    background-color: #29282846;
+    font-size: 10pt;
+}
+
+
+.description2{
+  margin-left:35%;
+  margin-right: 35%;
+  width: 30%;
+  font-family: 'Lexend Deca', sans-serif;
+  color: #443f3f;
+  letter-spacing: 4px;
+  font-size: 30pt;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.description2-wrapper{
+  margin-top: 50px;
+  
+}
+
+.attribute-title{
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+  text-align: center;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.185);
+  transition: 0.3s;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.city{
+  font-family: 'Lexend Deca', sans-serif;
+  color: #443f3f;
+}
+
+.radar-wrapper{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top:10%;
+  background-color: whitesmoke;
+}
+
+.jobs{
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+  padding-left: 6%;
+}
+
+.summary-title{
+  position: relative;
+  bottom: 30px;
   margin-top: 5%;
-  margin-bottom: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+  text-align: center
+}
+
+.average-salary{
+  margin-left: 10%;
+  margin-right: 10%;
+  font-family: 'Lexend Deca', sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+.how-compares{
+  font-family: 'Lexend Deca', sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+.right-div-salary{
+  margin-top: 3%;
+  margin-right: 20%;
+}
+
+.ui.menu .red.active.item, .ui.red.menu .active.item {
+  border-color: #607d8b!important;
+  color: #607d8b!important;
+}
+
+.ui.segment {
+  background: #ffffff6b;
+}
+
+.attributes{
+  margin-left:50%
+}
+
+.attributes2{
+  margin-right:50%
 }
