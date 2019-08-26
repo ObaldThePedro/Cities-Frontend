@@ -24,7 +24,7 @@ export const DATA_SECTIONS = [
         id: "CLIMATE"
     },
     {
-        label:"Cost of living",
+        label:"Cost of living (USD)",
         id: "COST-OF-LIVING"
     },
     {
